@@ -1,0 +1,282 @@
+.page-main {
+  background-color: map-get($colors, bg-blue-light);
+.txt-pink {
+  color: #c75c6f;
+}
+.title-section {
+  @include pxRem(margin-bottom, 80);
+  justify-content: space-between;
+  align-items: center;
+}
+.title-h1 {
+  @include pxRem(font-size, 70);
+  @include pxRem(margin-bottom, 40);
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: -.045em;
+}
+.title-h2 {
+  @include pxRem(font-size, 56);
+  line-height: 1.2;
+  font-weight: 500;
+}
+.title-h4 {
+  @include pxRem(font-size, 32);
+  color: map-get($colors, black);
+  line-height: 1.2;
+  font-weight: 500;
+}
+.title-text {
+  @include pxRem(font-size, 18);
+  @include pxRem(margin, 0 0 30);
+  font-family:"Poppins", sans-serif;
+  line-height: 1.5;
+}
+.text {
+  @include pxRem(font-size, 14);
+  @include pxRem(margin-bottom, 15);
+}
+
+section {
+  position: relative;
+}
+  //==Section Banner==
+.section-banner {
+  @include pxRem(padding-top, 200);
+  z-index: 0;
+  &::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(250, 184, 196, 0.7) 10%, #fff);
+    -webkit-clip-path: circle(120% at 50% -52%);
+    clip-path: circle(120% at 50% -52%);
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+  .banner {
+    &-content {
+      @include pxRem(padding, 0 15);
+      margin: 0 auto;
+      position: relative;
+      z-index: 100;
+    }
+    &-count-list {
+      @include pxRem(margin-left, 50);
+      justify-content: center;
+      text-align: center;
+    }
+    &-count-item {
+      @include pxRem(margin-right, 55);
+      @include pxRem(min-width, 170);
+    }
+    &-count-number {
+      @include pxRem(font-size, 80);
+      font-weight: map-get($font-weight, medium);
+      color: map-get($colors, primary);
+      font-family: 'Poppins', sans-serif;
+      align-items: center;
+      justify-content: center;
+    }
+    &-slider {
+      @include pxRem(margin-top, 90);
+      position: relative;
+      z-index: 200;
+      .slick-track {
+        @include pxRem(width, 20550 !important);
+      }
+      .slick-list {
+        .single-slide {
+          img {
+            @include pxRem(border-radius, 30);
+            box-shadow: 0 60px 86px -30px rgb(153 159 174 / 40%);
+          }
+        }
+        .slick-slide {
+          @include pxRem(padding, 0 30);
+          transform: scale(.85);
+          cursor: pointer
+        }
+        .slick-slide.slick-active.slick-center {
+          @include pxRem(padding, 0 5);
+          @include pxRem(margin, 0 0 100);
+          transform: scale(1);
+        }
+      }
+      .slick-dots {
+        @include pxRem(bottom, 10);
+        li {
+          @include pxRem(margin, 0 10);
+          button {
+            color: #dbdeff;
+            &:before {
+              transition: all .3s ease-in-out;
+              @include pxRem(font-size, 14);
+              color: map-get($colors, bg-hover);
+            }
+          }
+        }
+      }
+    }
+
+    &-bgshape-list {
+      @include pxRem(top, -300);
+      .shape {
+        position: absolute;
+        z-index: 3;
+      }
+      .shape-1 {
+        @include pxRem(left, -10);
+        top: 0;
+      }
+      .shape-2 {
+        @include pxRem(left, 220);
+        top: 45%;
+        animation: movingleftright1 25s infinite;
+      }
+      .shape-3 {
+        @include pxRem(bottom, 130);
+        left: 45%;
+        animation: movingleftright3 20s infinite;
+      }
+      .shape-4 {
+        @include pxRem(top, 180);
+        left: 65%;
+        animation: movingleftright3 20s infinite;
+      }
+    }
+  }
+}
+}
+
+//==Section Main Demo==
+.section-maindemo {
+  @include pxRem(padding, 150 0);
+.maindemo {
+  &-list {
+    flex-wrap: wrap;
+  }
+  &-item {
+    @include pxRem(margin-bottom, 80);
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    overflow:hidden;
+    &:nth-child(2n) {
+      @include pxRem(padding-left,15);
+    }
+    &:nth-child(2n-1) {
+      @include pxRem(padding-right,15);
+    }
+    &-img {
+      @include pxRem(margin-bottom, 40);
+      @include pxRem(border-radius, 30);
+      overflow:hidden;
+      position: relative;
+      box-shadow: 0 78px 40px -58px rgb(153 161 170 / 50%);
+      img {
+        @include pxRem(border-radius, 30);
+        box-shadow: 0 78px 40px -58px rgb(153 161 170 / 50%);
+        transition: transform 2s cubic-bezier(.2,.96,.34,1);
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        left: -75%;
+        z-index: 4;
+        display: block;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg,hsla(0,0%,100%,0) 0,hsla(0,0%,100%,.3));
+        transform: skewX(-25deg)
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      .maindemo-item-img {
+        &::before {
+          animation: shine .75s;
+        }
+        img {
+          transform: scale(1.1);
+          box-shadow: 0 78px 40px -58px rgb(153 161 170 / 50%);
+        }
+      }
+    }
+  }
+  &-bgshape-list {
+    .shape-3 {
+      position: absolute;
+      top: calc(25% - 130px);
+    }
+    .shape-4 {
+      position: absolute;
+      top: calc(39% - 130px);
+
+    }
+  }
+}
+}
+// Keframe Animation
+
+@keyframes movingleftright1 {
+  0% {
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+  40% {
+    -webkit-transform: translateX(50px) translateY(-200px);
+    transform: translateX(50px) translateY(-200px);
+  }
+  75% {
+    -webkit-transform: translateX(800px);
+    transform: translateX(800px);
+  }
+  100% {
+    -webkit-transform: translateY(0) translateX(0);
+    transform: translateY(0) translateX(0);
+  }
+}
+@keyframes movingleftright2 {
+  0% {
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+  40% {
+    -webkit-transform: translateX(-50px) translateY(200px);
+    transform: translateX(-50px) translateY(200px);
+  }
+  75% {
+    -webkit-transform: translateX(-500px);
+    transform: translateX(-500px);
+  }
+  100% {
+    -webkit-transform: translateY(0) translateX(0);
+    transform: translateY(0) translateX(0);
+  }
+}
+@keyframes movingleftright3 {
+  0% {
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+  40% {
+    -webkit-transform: translateX(100px) translateY(-200px);
+    transform: translateX(100px) translateY(-200px);
+  }
+  75% {
+    -webkit-transform: translateX(-500px);
+    transform: translateX(-500px);
+  }
+  100% {
+    -webkit-transform: translateY(0) translateX(0);
+    transform: translateY(0) translateX(0);
+  }
+}
+@keyframes shine {
+  100% {
+      left: 125%;
+  }
+}

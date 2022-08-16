@@ -1,0 +1,59 @@
+.btn {
+  @include pxRem(padding, 18 55);
+  @include pxRem(border-radius, 20);
+  @include pxRem(font-size, 18);
+  font-weight: 400;
+  letter-spacing: -.04em;
+  border: 1px solid map-get($colors, primary);
+  background-color: map-get($colors, primary);
+  color: map-get($colors, white);
+  line-height: 1.5;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: background 400ms ease;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  &:hover {
+    background: map-get($colors, primary-dark);
+  }
+  &:focus {
+    outline: none;
+  }
+  &.disabled,
+  &:disabled {
+    pointer-events: none;
+    color: map-get($colors, txt-disabled);
+    border-color: map-get($colors, txt-disabled);
+    background: map-get($colors, bg-gray-light);
+  }
+}
+.primary-btn {
+  &:hover {
+    background-color: map-get($colors, bg-hover);
+    border-color: map-get($colors, bg-hover);
+    a::after {
+      transform: translateY(-50%) translateX(-50%) scale(1);
+    }
+  }
+  a {
+    position: relative;
+    width: inherit;
+    z-index: 1;
+    &::after {
+      content: "";
+      @include pxRem(height, 300);
+      @include pxRem(width, 300);
+      background-color: map-get($colors, bg-hover);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%) scale(0);
+      transition: .5s cubic-bezier(.25,.46,.45,.94);
+      z-index: -1;
+    }
+  }
+}
