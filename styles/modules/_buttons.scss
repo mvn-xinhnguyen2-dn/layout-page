@@ -1,9 +1,9 @@
 .btn {
   @include pxRem(padding, 18 55);
   @include pxRem(border-radius, 20);
-  @include pxRem(font-size, 18);
+  @include pxRem(font-size, 17.8);
   font-weight: 400;
-  letter-spacing: -.04em;
+  letter-spacing: -0.04em;
   border: 1px solid map-get($colors, primary);
   background-color: map-get($colors, primary);
   color: map-get($colors, white);
@@ -52,8 +52,33 @@
       top: 50%;
       left: 50%;
       transform: translateY(-50%) translateX(-50%) scale(0);
-      transition: .5s cubic-bezier(.25,.46,.45,.94);
+      transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       z-index: -1;
     }
   }
+}
+.btn-small {
+  @include pxRem(padding, 13 24);
+  @include pxRem(font-size, 18);
+  @include pxRem(line-height, 43);
+  @include pxRem(border-radius, 100);
+  border: none;
+  transition: $transition-hover;
+  background-color: #c75c6f;
+}
+.btn-big {
+  @include pxRem(padding, 24 80);
+  @include pxRem(font-size, 16);
+  background-color: #fff;
+  color: #2a288b;
+  font-weight: 500;
+  font-family: $font-text;
+  &:hover {
+    background-color: #ffdc60;
+  }
+}
+.btn-swicher-theme {
+  @include pxRem(border-radius, 0 30 30 0);
+  @include pxRem(padding, 21);
+  @include pxRem(font-size, 18);
 }

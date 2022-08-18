@@ -1,47 +1,79 @@
 .page-main {
   background-color: map-get($colors, bg-blue-light);
-.txt-pink {
-  color: #c75c6f;
-}
-.title-section {
-  @include pxRem(margin-bottom, 80);
-  justify-content: space-between;
-  align-items: center;
-}
-.title-h1 {
-  @include pxRem(font-size, 70);
-  @include pxRem(margin-bottom, 40);
-  text-align: center;
-  line-height: 1.4;
-  font-weight: 700;
-  letter-spacing: -.045em;
-}
-.title-h2 {
-  @include pxRem(font-size, 56);
-  line-height: 1.2;
-  font-weight: 500;
-}
-.title-h4 {
-  @include pxRem(font-size, 32);
-  color: map-get($colors, black);
-  line-height: 1.2;
-  font-weight: 500;
-}
-.title-text {
-  @include pxRem(font-size, 18);
-  @include pxRem(margin, 0 0 30);
-  font-family:"Poppins", sans-serif;
-  line-height: 1.5;
-}
-.text {
-  @include pxRem(font-size, 14);
-  @include pxRem(margin-bottom, 15);
-}
-
-section {
-  position: relative;
-}
-  //==Section Banner==
+  .txt-pink {
+    color: #c75c6f;
+  }
+  .title-section {
+    @include pxRem(margin-bottom, 80);
+    justify-content: space-between;
+    align-items: center;
+  }
+  .title-h1 {
+    @include pxRem(font-size, 70);
+    @include pxRem(margin-bottom, 40);
+    text-align: center;
+    line-height: 1.4;
+    font-weight: map-get($font-weight, semibold);
+    letter-spacing: -0.045em;
+  }
+  .title-h2 {
+    @include pxRem(font-size, 56);
+    line-height: 1.2;
+    font-weight: map-get($font-weight, bold);
+  }
+  .title-h4 {
+    @include pxRem(font-size, 32);
+    color: map-get($colors, black);
+    transition: $transition-hover;
+    line-height: 1.2;
+    font-weight: map-get($font-weight, bold);
+  }
+  .title-h5 {
+    font-weight: map-get($font-weight, normal);
+  }
+  .title-text {
+    @include pxRem(font-size, 18);
+    @include pxRem(padding, 0 15);
+    font-family: $font-text;
+    line-height: 1.5;
+  }
+  .text {
+    @include pxRem(font-size, 14);
+    @include pxRem(margin-bottom, 15);
+  }
+  section {
+    position: relative;
+  }
+  .bg-dark {
+    background-color: map-get($colors, bg-gray-dark);
+    .title-section {
+      @include pxRem(margin-bottom, 75);
+      justify-content: left;
+    }
+    .title-h2 {
+      color: #fff;
+      font-weight: map-get($font-weight, normal);
+    }
+    .title-text {
+      color: #fff;
+      opacity: 0.6;
+      width: 41.66666667%;
+    }
+    p.text {
+      @include pxRem(font-size, 16);
+      font-weight: map-get($font-weight, light);
+      margin-bottom: 0;
+      font-family: $font-text;
+      color: #fff;
+      opacity: 0.4;
+      letter-spacing: -0.03em;
+      transition: $transition-hover;
+    }
+    .title-h5 {
+      color: map-get($colors, white);
+    }
+  }
+//==Section Banner==
 .section-banner {
   @include pxRem(padding-top, 200);
   z-index: 0;
@@ -50,7 +82,6 @@ section {
     height: 100%;
     width: 100%;
     background: linear-gradient(0deg, rgba(250, 184, 196, 0.7) 10%, #fff);
-    -webkit-clip-path: circle(120% at 50% -52%);
     clip-path: circle(120% at 50% -52%);
     position: absolute;
     top: 0;
@@ -76,7 +107,7 @@ section {
       @include pxRem(font-size, 80);
       font-weight: map-get($font-weight, medium);
       color: map-get($colors, primary);
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       align-items: center;
       justify-content: center;
     }
@@ -89,15 +120,15 @@ section {
       }
       .slick-list {
         .single-slide {
-          img {
+          span {
             @include pxRem(border-radius, 30);
             box-shadow: 0 60px 86px -30px rgb(153 159 174 / 40%);
           }
         }
         .slick-slide {
           @include pxRem(padding, 0 30);
-          transform: scale(.85);
-          cursor: pointer
+          transform: scale(0.85);
+          cursor: pointer;
         }
         .slick-slide.slick-active.slick-center {
           @include pxRem(padding, 0 5);
@@ -112,7 +143,7 @@ section {
           button {
             color: #dbdeff;
             &:before {
-              transition: all .3s ease-in-out;
+              transition: $transition-hover;
               @include pxRem(font-size, 14);
               color: map-get($colors, bg-hover);
             }
@@ -120,7 +151,6 @@ section {
         }
       }
     }
-
     &-bgshape-list {
       @include pxRem(top, -300);
       .shape {
@@ -153,74 +183,358 @@ section {
 
 //==Section Main Demo==
 .section-maindemo {
-  @include pxRem(padding, 150 0);
-.maindemo {
-  &-list {
-    flex-wrap: wrap;
+  @include pxRem(padding, 70 0 90);
+  .maindemo {
+    &-list {
+      flex-wrap: wrap;
+    }
+    &-item {
+      @include pxRem(margin-bottom, 80);
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      overflow: hidden;
+      &:nth-child(2n) {
+        @include pxRem(padding-left, 15);
+      }
+      &:nth-child(2n-1) {
+        @include pxRem(padding-right, 15);
+      }
+      &-img {
+        @include pxRem(margin-bottom, 40);
+        @include pxRem(border-radius, 30);
+        overflow: hidden;
+        position: relative;
+        box-shadow: $box-shadow;
+        span {
+          @include pxRem(border-radius, 30);
+          box-shadow: $box-shadow;
+          img {
+            transition: transform 2s cubic-bezier(0.2, 0.96, 0.34, 1);
+          }
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          left: -75%;
+          z-index: 4;
+          display: block;
+          width: 50%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            hsla(0, 0%, 100%, 0) 0,
+            hsla(0, 0%, 100%, 0.3)
+          );
+          transform: skewX(-25deg);
+        }
+      }
+      &:hover {
+        cursor: pointer;
+        .maindemo-item-img {
+          &::before {
+            animation: shine 0.75s;
+          }
+          span img {
+            transition: transform 2s cubic-bezier(0.2, 0.96, 0.34, 1);
+            transform: scale(1.1);
+          }
+        }
+        .title-h4 {
+          color: map-get($colors, primary);
+        }
+      }
+    }
+    &-bgshape-list {
+      .shape-3 {
+        position: absolute;
+        top: calc(25% - 175px);
+        @include pxRem(max-width, 547);
+      }
+      .shape-4 {
+        position: absolute;
+        @include pxRem(max-width, 1440);
+
+        top: calc(39% - 145px);
+      }
+    }
   }
-  &-item {
-    @include pxRem(margin-bottom, 80);
+}
+
+//==Section Services==
+.section-services {
+  @include pxRem(padding, 140 0 110);
+  position: relative;
+  .services {
+    &-list {
+      flex-wrap: wrap;
+      align-items: stretch;
+      justify-content: left;
+    }
+    &-item {
+      @include pxRem(border-radius, 30);
+      @include pxRem(padding, 0 15);
+      flex: 0 0 auto;
+      position: relative;
+      &:nth-child(3n) {
+        @include pxRem(padding-right, 0);
+      }
+      &:nth-child(3n-2) {
+        @include pxRem(padding-left, 0);
+      }
+      &-content {
+        @include pxRem(padding, 55 55);
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        &:hover {
+          &::after {
+            visibility: visible;
+            opacity: 1;
+          }
+          p.text {
+            opacity: 0.8;
+          }
+        }
+        &::after {
+          @include pxRem(border-radius, 30);
+          content: "";
+          height: 100%;
+          width: calc(100% - 5px);
+          background: linear-gradient(180deg, #27272e, #303035);
+          border: 1px solid;
+          border-image-source: linear-gradient(
+            0deg,
+            #27272e 64.45%,
+            rgba(74, 75, 86, 0.72)
+          );
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: -1;
+          visibility: hidden;
+          opacity: 0;
+          transition: $transition-hover;
+        }
+      }
+      &-img {
+        @include pxRem(max-height, 48);
+        @include pxRem(margin-left, 1);
+      }
+    }
+    &-bgshape-list {
+      .shape {
+        position: absolute;
+        z-index: 0;
+      }
+      .shape-1 {
+        @include pxRem(top, 100);
+        right: 0;
+      }
+      .shape-2 {
+        @include pxRem(bottom, 200);
+        left: 0;
+      }
+      .shape-3 {
+        @include pxRem(top, 680);
+        @include pxRem(left, 110);
+      }
+    }
+  }
+}
+
+//==Section Reason==
+.section-reason {
+  .title-section {
+    @include pxRem(margin-bottom, 70);
+  }
+  @include pxRem(padding, 140 0 110);
+  .reason {
+    position: relative;
+    z-index: 1;
+    &-list {
+      flex-wrap: wrap;
+      align-items: stretch;
+      justify-content: center;
+    }
+    &-item {
+      @include pxRem(padding-right, 30);
+      @include pxRem(margin-bottom, 80);
+      flex: 0 0 auto;
+      &-content {
+        @include pxRem(border-radius, 30);
+        @include pxRem(padding, 35);
+        border: 1px solid #e3e6e9;
+        background-color: white;
+        height: 100%;
+      }
+      &:nth-child(3n) {
+        padding-right: 0;
+      }
+      &-title {
+        @include pxRem(margin-bottom, 20);
+      }
+      &-icon {
+        @include pxRem(height, 62);
+        @include pxRem(width, 62);
+        @include pxRem(line-height, 60);
+        @include pxRem(margin-right, 20);
+        justify-content: center;
+        align-items: center;
+        background-color: #ffdc60;
+        border-radius: 50%;
+      }
+      &:nth-child(4),
+      &:last-child {
+        p.text {
+          @include pxRem(margin-bottom, 16);
+        }
+        .reason-item-title {
+          flex-direction: row-reverse;
+        }
+        .reason-item-icon {
+          @include pxRem(margin-right, 0);
+          background-color: map-get($colors, bg-blue-light);
+        }
+        .reason-item-content {
+          @include pxRem(padding, 30 35);
+          overflow: hidden;
+          position: relative;
+          transition: $transition-hover;
+        }
+        .title-h5 {
+          @include pxRem(font-size, 32);
+          color: map-get($colors, black);
+          transition: $transition-hover;
+          font-weight: map-get($font-weight, medium);
+        }
+        &:hover {
+          cursor: pointer;
+          .reason-item-content {
+            box-shadow: 0 50px 50px -24px rgb(153 161 170 / 30%);
+          }
+          .btn-small {
+            background-color: map-get($colors, primary);
+          }
+        }
+      }
+      &:nth-child(4) {
+        .shape {
+          @include pxRem(max-height, 139);
+          @include pxRem(bottom, -7);
+          position: absolute;
+          right: 0;
+          z-index: 0;
+        }
+        .btn-small {
+          @include pxRem(left, 35);
+          @include pxRem(bottom, 30);
+          position: absolute;
+        }
+      }
+      &:last-child {
+        .shape {
+          @include pxRem(max-height, 82);
+        }
+        .btn-small {
+          background-color: #896ba7;
+        }
+      }
+    }
+    .title-h5 {
+      flex: 1 1;
+    }
+    p.text {
+      @include pxRem(font-size, 16);
+      position: relative;
+      z-index: 3;
+      font-weight: map-get($font-weight, light);
+      font-family: $font-text;
+      letter-spacing: 0.001em;
+      transition: $transition-hover;
+      margin-bottom: 0;
+    }
+  }
+  .line-shape {
+    @include pxRem(top, 90);
+    position: absolute;
+    left: 0;
+    transform: scaleX(-1);
+    z-index: 0;
+  }
+}
+
+// ==Section contact==
+.section-contact {
+  @include pxRem(padding, 140 0 80);
+  background-color: #5956e9;
+  color: #fff;
+  text-align: center;
+  .title-h2 {
+    @include pxRem(margin-bottom, 20);
+    @include pxRem(font-size, 70);
+    font-weight: map-get($font-weight, normal);
+  }
+  p.text {
+    @include pxRem(font-size, 20);
+    @include pxRem(margin-bottom, 40);
+    line-height: 1.5;
+    font-family: $font-text;
+    font-weight: map-get($font-weight, light);
+    color: map-get($colors, bg-blue-light);
+  }
+  .contact {
+    @include pxRem(margin-bottom, 65);
     position: relative;
     z-index: 2;
-    text-align: center;
-    overflow:hidden;
-    &:nth-child(2n) {
-      @include pxRem(padding-left,15);
-    }
-    &:nth-child(2n-1) {
-      @include pxRem(padding-right,15);
-    }
-    &-img {
-      @include pxRem(margin-bottom, 40);
-      @include pxRem(border-radius, 30);
-      overflow:hidden;
-      position: relative;
-      box-shadow: 0 78px 40px -58px rgb(153 161 170 / 50%);
-      img {
-        @include pxRem(border-radius, 30);
-        box-shadow: 0 78px 40px -58px rgb(153 161 170 / 50%);
-        transition: transform 2s cubic-bezier(.2,.96,.34,1);
-      }
-      &::before {
-        content: "";
-        position: absolute;
-        left: -75%;
-        z-index: 4;
-        display: block;
-        width: 50%;
-        height: 100%;
-        background: linear-gradient(90deg,hsla(0,0%,100%,0) 0,hsla(0,0%,100%,.3));
-        transform: skewX(-25deg)
-      }
-    }
-    &:hover {
-      cursor: pointer;
-      .maindemo-item-img {
-        &::before {
-          animation: shine .75s;
-        }
-        img {
-          transform: scale(1.1);
-          box-shadow: 0 78px 40px -58px rgb(153 161 170 / 50%);
-        }
-      }
-    }
   }
-  &-bgshape-list {
-    .shape-3 {
+  .contact-bgshape-list {
+    .shape {
       position: absolute;
-      top: calc(25% - 130px);
+      z-index: 1;
+    }
+    .shape-1 {
+      top: 0;
+      left: 32%;
+    }
+    .shape-2 {
+      top: 180px;
+      left: 18%;
+      opacity: 0.5;
+      animation: movingleftright1 20s infinite;
+    }
+    .shape-3 {
+      top: 31%;
+      left: 20%;
+      animation: movingleftright2 25s infinite;
     }
     .shape-4 {
-      position: absolute;
-      top: calc(39% - 130px);
-
+      top: 44%;
+      left: 28%;
+      animation: movingleftright1 25s infinite;
+    }
+    .shape-5 {
+      top: 50%;
+      left: 17%;
+      animation: movingleftright2 30s infinite;
+    }
+    .shape-6 {
+      top: 26%;
+      right: 21%;
+      animation: movingleftright3 30s infinite;
+    }
+    .shape-7 {
+      top: 30%;
+      right: 15%;
+      -webkit-animation: movingleftright1 30s infinite;
+      animation: movingleftright1 30s infinite;
     }
   }
 }
-}
-// Keframe Animation
 
+// Keframe Animation
 @keyframes movingleftright1 {
   0% {
     -webkit-transform: translateX(0) translateY(0);
@@ -277,6 +591,6 @@ section {
 }
 @keyframes shine {
   100% {
-      left: 125%;
+    left: 125%;
   }
 }

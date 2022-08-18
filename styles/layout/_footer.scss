@@ -1,5 +1,57 @@
 .page-footer {
-  @include pxRem(padding, 10);
+  @include pxRem(padding, 30 0);
+  @include pxRem(font-size, 16);
   background: map-get($colors, bg-gray);
   text-align: center;
+  color: #757589;
+  font-family: $font-text;
+  .footer {
+    justify-content: space-between;
+    align-items: center;
+    &-social-list {
+      justify-content: center;
+      align-items: center;
+    }
+    &-copyright {
+      text-align: left;
+    }
+    &-social-item {
+      @include pxRem(padding, 12 12 6);
+      vertical-align: middle;
+      text-align: center;
+      background-color: #ecf2f6;
+      border-radius: 50%;
+      transition: $transition-hover;
+      color: #525260;
+      &:hover {
+        background-color: #5956e9;
+        color: #fff;
+      }
+    }
+    &-link-list {
+      justify-content: flex-end;
+      align-items: center;
+    }
+    &-link-item {
+      position: relative;
+      transition: $transition-hover;
+      &:hover {
+        color: map-get($colors, primary);
+      }
+      &:last-child {
+        &::before {
+          content: "";
+          height: 58%;
+          width: 2px;
+          background-color: #99a1aa;
+          border-radius: 50%;
+          position: absolute;
+          top: 53%;
+          left: 0;
+          z-index: 1;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
 }

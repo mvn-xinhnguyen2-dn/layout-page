@@ -1,6 +1,6 @@
-import Image from "next/future/image";
+import Image from "next/image";
 import React from "react";
-import {Slider} from "../index"
+import { Slider } from "../index";
 
 const data = [
   { key: 1, text: "Demo Website (More Coming)", number: 5 },
@@ -41,33 +41,35 @@ const Banner = () => {
     const obj_values: any = document.querySelectorAll(
       ".counter-number"
     ) as NodeListOf<HTMLScriptElement>;
-      animateValue(obj_values[0], 0, 5, 1000);
-      animateValue(obj_values[1], 0, 30, 1000);
-      animateValue(obj_values[2], 0, 30, 1000);
+    animateValue(obj_values[0], 0, 5, 1000);
+    animateValue(obj_values[1], 0, 30, 1000);
+    animateValue(obj_values[2], 0, 30, 1000);
   } catch (err) {}
-  
+
   return (
     <section className="section-banner">
       <div className="banner container">
         <div className="row">
-        <div className="banner-content col-10">
-          <h1 className="title-h1">
-            Creative Agency, Corporate and Portfolio{" "}
-            <span className="txt-pink">React JS</span> Template + RTL
-          </h1>
-          <ul className="banner-count-list flex">
-            {data.map((item) => {
-              let element = <></>;
-              element = (
-                <li className="banner-count-item" key={item.key}>
-                  <p className="text">{item.text}</p>
-                  <h2 className="banner-count-number flex"><span className="counter-number">{item.number}</span>+</h2>
-                </li>
-              );
-              return element;
-            })}
-          </ul>
-        </div>
+          <div className="banner-content col-10">
+            <h1 className="title-h1">
+              Creative Agency, Corporate and Portfolio{" "}
+              <span className="txt-pink">React JS</span> Template + RTL
+            </h1>
+            <ul className="banner-count-list flex">
+              {data.map((item) => {
+                let element = <></>;
+                element = (
+                  <li className="banner-count-item" key={item.key}>
+                    <p className="text">{item.text}</p>
+                    <h2 className="banner-count-number flex">
+                      <span className="counter-number">{item.number}</span>+
+                    </h2>
+                  </li>
+                );
+                return element;
+              })}
+            </ul>
+          </div>
         </div>
       </div>
       <div className="banner-slider">
@@ -75,16 +77,36 @@ const Banner = () => {
       </div>
       <ul className="banner-bgshape-list shape-group-1">
         <li className="shape shape-1">
-          <Image src="https://new.axilthemes.com/demo/react/abstrak/images/others/bubble-36.png" alt="bubble" width={561} height={214}/>
+          <Image
+            src="https://new.axilthemes.com/demo/react/abstrak/images/others/bubble-36.png"
+            alt="bubble"
+            width={561}
+            height={214}
+          />
         </li>
         <li className="shape shape-2">
-          <Image src="https://new.axilthemes.com/demo/react/abstrak/images/others/bubble-14.png" alt="bubble" width={48} height={48} />
+          <Image
+            src="https://new.axilthemes.com/demo/react/abstrak/images/others/bubble-14.png"
+            alt="bubble"
+            width={48}
+            height={48}
+          />
         </li>
         <li className="shape shape-3">
-          <Image src="https://new.axilthemes.com/demo/react/abstrak/images/others/bubble-37.png" alt="bubble" width={32} height={32}/>
+          <Image
+            src="https://new.axilthemes.com/demo/react/abstrak/images/others/bubble-37.png"
+            alt="bubble"
+            width={32}
+            height={32}
+          />
         </li>
         <li className="shape shape-4">
-          <Image src="https://new.axilthemes.com/demo/react/abstrak/images/others/bubble-31.png" alt="bubble" width={24} height={24}/>
+          <Image
+            src="https://new.axilthemes.com/demo/react/abstrak/images/others/bubble-31.png"
+            alt="bubble"
+            width={24}
+            height={24}
+          />
         </li>
       </ul>
     </section>

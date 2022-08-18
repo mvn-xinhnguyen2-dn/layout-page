@@ -26,7 +26,10 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
             name="description"
             content="&lt;h2&gt;$10 Only for This Week Offer. The regular price is $24. Don’t miss this offer. Buy Now&..."
           />
-          <link rel="icon" href="https://new.axilthemes.com/demo/react/abstrak/favicon.ico" />
+          <link
+            rel="icon"
+            href="https://new.axilthemes.com/demo/react/abstrak/favicon.ico"
+          />
         </Head>
         {getLayout(<Component {...pageProps} />)}
       </div>

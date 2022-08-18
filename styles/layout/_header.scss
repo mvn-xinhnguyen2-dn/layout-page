@@ -1,40 +1,51 @@
+.swicher-theme {
+  position: fixed;
+  top: 200px;
+  left: 0;
+  z-index: 200;
+  // .dark-color {}
+  .white-color {
+    display: none;
+  }
+}
 .page-header {
   width: 100%;
   position: absolute;
   top: 0;
   z-index: 3;
-.header-wraper {
-  transition: all .3s ease-in-out;
-}
-.header {
-  @include pxRem(padding, 35 15);
-  justify-content: space-between;
-  align-items: center;
-  &-logo {
-    cursor: pointer;
-    position: relative;
-    img:last-child {
-      display: none;
-    }
+  .header-wraper {
+    transition: $transition-hover;
   }
-  &-nav {
+  .header {
+    @include pxRem(padding, 35 15);
     justify-content: space-between;
     align-items: center;
-    &-list {
-      @include pxRem(margin, 0 22);
-      align-items: center;
-    }
-    &-item {
-      @include pxRem(font-size, 16);
-      @include pxRem(margin, 0 24);
-      color: map-get($colors, txt-gray-dark);
-      a {
-        position: relative;
+    &-logo {
+      height: 60px;
+      cursor: pointer;
+      position: relative;
+      &-dark {
+        display: none;
       }
-      a::before {
-        @include pxRem(height, 2);
-        @include pxRem(bottom, -10);
-          transition: .5s;
+    }
+    &-nav {
+      justify-content: space-between;
+      align-items: center;
+      &-list {
+        @include pxRem(margin, 0 22);
+        align-items: center;
+      }
+      &-item {
+        @include pxRem(font-size, 16);
+        @include pxRem(margin, 0 24);
+        color: map-get($colors, txt-gray-dark);
+        a {
+          position: relative;
+        }
+        a::before {
+          @include pxRem(height, 2);
+          @include pxRem(bottom, -10);
+          transition: 0.5s;
           opacity: 0;
           width: 0%;
           content: "";
@@ -42,54 +53,52 @@
           position: absolute;
           z-index: 100;
           left: 0;
+        }
+        a:hover {
+          color: map-get($colors, primary);
+          position: relative;
+          transition: 0.5s;
+          &::before {
+            opacity: 1;
+            width: 100%;
           }
-      a:hover {
-        color: map-get($colors, primary);
-        position: relative;
-        transition: .5s;
-        &::before {
-          opacity: 1;
-          width: 100%;
+        }
+      }
+    }
+  }
+  .sticky {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: map-get($colors, white);
+    box-shadow: 0 2px 10px 0 rgb(0 0 0 / 10%);
+    animation: headerSlideDown 0.8s ease forwards;
+    .header {
+      @include pxRem(padding, 15);
+      &-logo {
+        &-white {
+          display: none;
+        }
+        &-dark {
+          display: block;
         }
       }
     }
   }
 }
-.sticky {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 100;
-  background-color: map-get($colors, white);
-  box-shadow: 0 2px 10px 0 rgb(0 0 0 / 10%);
-  animation: headerSlideDown .8s ease forwards;
-  .header {
-    @include pxRem(padding, 15);
-    &-logo {
-      cursor: pointer;
-      img:first-child {
-        display: none;
-      }
-      img:last-child {
-        display: block;
-      }
-    }
-  }
-}
-}
 
 @keyframes headerSlideDown {
   0% {
     @include pxRem(margin-top, -20);
-      opacity: 0;
+    opacity: 0;
   }
   30% {
-     @include pxRem(margin-top, -10);
-      opacity: 0;
-  } 
+    @include pxRem(margin-top, -10);
+    opacity: 0;
+  }
   100% {
-     @include pxRem(margin-top, 0);
-      opacity: 1;
+    @include pxRem(margin-top, 0);
+    opacity: 1;
   }
 }
-
