@@ -97,6 +97,12 @@
     }
     .header-nav-item {
       color: #d3d3d4;
+      a::before {
+        background-color: #d3d3d4;
+      }
+      a:hover {
+        color: inherit;
+      }
     }
     .header-logo-dark,
     .header-logo-white {

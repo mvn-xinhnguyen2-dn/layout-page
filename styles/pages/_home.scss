@@ -143,10 +143,17 @@
           button {
             color: #dbdeff;
             &:before {
-              transition: $transition-hover;
               @include pxRem(font-size, 14);
-              color: map-get($colors, bg-hover);
+              opacity:1;
+              transition: $transition-hover;
+              color: #dbdeff;
             }
+          }
+        }
+        .slick-active {
+          button:before {
+            opacity:1;
+            color: map-get($colors, primary);
           }
         }
       }
@@ -408,7 +415,7 @@
           @include pxRem(font-size, 32);
           color: map-get($colors, black);
           transition: $transition-hover;
-          font-weight: map-get($font-weight, medium);
+          font-weight: 500;
         }
         &:hover {
           cursor: pointer;

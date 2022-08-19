@@ -78,6 +78,35 @@
     background-color: #ffdc60;
   }
 }
+.active-dark-theme {
+  .btn-big {
+    &:hover {
+      background-color: map-get($colors, bg-hover);
+      border-color: map-get($colors, bg-hover);
+      a::after {
+        transform: translateY(-50%) translateX(-50%) scale(1);
+      }
+    }
+    a {
+      position: relative;
+      width: inherit;
+      z-index: 1;
+      &::after {
+        content: "";
+        @include pxRem(height, 300);
+        @include pxRem(width, 300);
+        background-color: map-get($colors, bg-hover);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%) scale(0);
+        transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: -1;
+      }
+    }
+  }
+}
 .btn-swicher-theme {
   @include pxRem(border-radius, 0 30 30 0);
   @include pxRem(padding, 21);
