@@ -73,6 +73,7 @@
   color: #2a288b;
   font-weight: 500;
   font-family: $font-text;
+  filter: drop-shadow(0 14px 20px rgba(35,34,87,.4)) drop-shadow(0 48px 48px rgba(0,0,0,.12));
   &:hover {
     background-color: #ffdc60;
   }

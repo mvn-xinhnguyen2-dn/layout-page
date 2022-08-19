@@ -8,14 +8,6 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <>
-      <div className="swicher-theme">
-        <div className="btn btn-swicher-theme dark-color">
-          <FaMoon />
-        </div>
-        <div className="btn btn-swicher-theme white-color">
-          <FaLightbulb />
-        </div>
-      </div>
       <Header />
       {children}
       <Footer />

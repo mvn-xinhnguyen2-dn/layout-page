@@ -34,7 +34,6 @@ const SliderDemo = () => {
     arrows: false,
     dots: true,
     autoPlay: true,
-    autoplay: true,
     autoplaySpeed: 1500,
     variableWidth: true,
     responsive: [

@@ -39,9 +39,9 @@ const dataContactBg = [
   },
 ];
 
-const Contact = () => {
+const Contact = ({isDarkTheme}:any) => {
   return (
-    <section className="section-contact">
+    <section className={`section-contact ${isDarkTheme==true? "active-dark-theme" : ""}`}>
       <div className="contact container">
         <h2 className="title-h2">
           Let&#39;s Start <br />

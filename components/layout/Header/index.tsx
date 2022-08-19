@@ -36,6 +36,14 @@ const Header = () => {
                 alt="logo-brand"
               />
             </div>
+            <div className="header-logo-dark-theme">
+              <Image
+                src="	https://new.axilthemes.com/demo/react/abstrak/images/logo-3.svg"
+                width={187}
+                height={60}
+                alt="logo-brand"
+              />
+            </div>
           </div>
           <nav className="header-nav flex">
             <ul className="header-nav-list flex">

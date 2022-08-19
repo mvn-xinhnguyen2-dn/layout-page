@@ -534,6 +534,75 @@
   }
 }
 
+//===DARK MODE===
+.active-dark-theme {
+.page-main {
+  .title-h1,
+  .title-h2,
+  .title-h4,
+  .title-h5,
+  .text,
+  p {
+    color: #d3d3d4;
+  }
+  background-color: #292930;
+.section-banner {
+  &::before {
+    background: #212121;
+  }
+  .banner-bgshape-list .shape-1 {
+    opacity: .2;
+  }
+  .banner-slider .slick-list .single-slide span {
+    box-shadow: none;
+  }
+  .banner-slider .slick-dots li button:before {
+    color: #d3d3d4;
+    opacity: 1;
+  }
+  .banner-slider .slick-dots .slick-active button:before {
+    color: map-get($colors, primary);
+    opacity: 1;
+  }
+}
+.section-maindemo {
+  .maindemo-item-img {
+    box-shadow: none;
+    span {
+      box-shadow: none;
+    }
+  }
+  .maindemo-bgshape-list .shape {
+    opacity: .1;
+  }
+}
+.section-reason {
+  .line-shape {
+    opacity: .1;
+  }
+  .reason-item-content {
+    background-color: #212121;
+    color: #fff;
+    border-color: #212121;
+  }
+  .title-h5 {
+    color: #d3d3d4;
+    font-weight: 500;
+  }
+}
+.section-contact {
+  background-color: #27272e;
+  .shape {
+    filter: brightness(.5)
+  }
+  .btn-big {
+    background-color: map-get($colors, primary);
+    color: #fff;
+  }
+}
+}
+}
+
 // Keframe Animation
 @keyframes movingleftright1 {
   0% {

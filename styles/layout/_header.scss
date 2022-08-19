@@ -5,7 +5,7 @@
   z-index: 200;
   // .dark-color {}
   .white-color {
-    display: none;
+    // display: none;
   }
 }
 .page-header {
@@ -25,6 +25,9 @@
       cursor: pointer;
       position: relative;
       &-dark {
+        display: none;
+      }
+      &-dark-theme {
         display: none;
       }
     }
@@ -84,6 +87,23 @@
           display: block;
         }
       }
+    }
+  }
+}
+.active-dark-theme {
+  .page-header{
+    .sticky {
+      background-color: #27272e;
+    }
+    .header-nav-item {
+      color: #d3d3d4;
+    }
+    .header-logo-dark,
+    .header-logo-white {
+      display: none;
+    }
+    .header-logo-dark-theme {
+      display: block;
     }
   }
 }
