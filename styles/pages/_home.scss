@@ -589,6 +589,10 @@
     color: #d3d3d4;
     font-weight: 500;
   }
+  .reason-item:last-child:hover .reason-item-content,
+  .reason-item:nth-child(4):hover .reason-item-content {
+    box-shadow: 0 50px 50px -24px rgb(1 1 1 / 30%);
+  }
 }
 .section-contact {
   background-color: #27272e;
