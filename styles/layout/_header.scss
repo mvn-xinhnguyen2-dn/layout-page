@@ -1,12 +1,8 @@
 .swicher-theme {
+  @include pxRem(top, 200);
   position: fixed;
-  top: 200px;
   left: 0;
   z-index: 200;
-  // .dark-color {}
-  .white-color {
-    // display: none;
-  }
 }
 .page-header {
   width: 100%;
@@ -21,7 +17,7 @@
     justify-content: space-between;
     align-items: center;
     &-logo {
-      height: 60px;
+      @include pxRem(height, 60);
       cursor: pointer;
       position: relative;
       &-dark {
@@ -126,5 +122,63 @@
   100% {
     @include pxRem(margin-top, 0);
     opacity: 1;
+  }
+}
+
+//==Responsive==
+@include respond-below(larger) {
+  .page-header {
+    .sticky .header {
+      @include pxRem(padding, 15);
+    }
+    .header {
+      @include pxRem(padding, 30 15);
+      &-nav-item {
+      @include pxRem(margin, 0 11);
+
+      }
+    }
+  }
+}
+@include respond-below(wide) { //992
+  .page-header {
+    .header {
+      justify-content: space-between;
+      align-items: center;
+      &-nav-list {
+        display: none;
+      }
+      &-logo {
+        @include pxRem(width, 150);
+        @include pxRem(height, 62);
+        div {
+          @include pxRem(padding-top, 5.5);
+        }
+      }
+
+    }
+  }
+}
+@include respond-below(medium) {
+  .page-header {
+    .sticky .header {
+      @include pxRem(padding, 12 15 10 15);
+    }
+    .header {
+      @include pxRem(padding, 26.5 15);
+    }
+  }
+  .swicher-theme {
+    display: none;
+  }
+}
+@include respond-below(small) {
+  .page-header {
+    .sticky .header {
+      @include pxRem(padding, 12 15);
+    }
+    .header {
+      @include pxRem(padding, 27 15);
+    }
   }
 }

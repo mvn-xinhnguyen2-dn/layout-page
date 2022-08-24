@@ -44,6 +44,7 @@ const SliderDemo = () => {
           centerMode: true,
           centerPadding: "40px",
           slidesToShow: 3,
+          variableWidth: true
         },
       },
       {
@@ -53,6 +54,7 @@ const SliderDemo = () => {
           centerMode: true,
           centerPadding: "40px",
           slidesToShow: 1,
+          variableWidth: true
         },
       },
     ],

@@ -2,6 +2,7 @@
   @include pxRem(padding, 18 55);
   @include pxRem(border-radius, 20);
   @include pxRem(font-size, 17.8);
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   letter-spacing: -0.04em;
   border: 1px solid map-get($colors, primary);
@@ -112,3 +113,20 @@
   @include pxRem(padding, 21);
   @include pxRem(font-size, 18);
 }
+
+//==Responsive==
+@include respond-below(medium) {
+  .btn {
+    @include pxRem(padding, 16.1 31.4);
+    @include pxRem(font-size, 15);
+  }
+  .btn-small {
+    @include pxRem(padding, 15 26.5);
+
+  }
+  .btn-big {
+    @include pxRem(padding, 24 80);
+    @include pxRem(font-size, 16);
+  }
+}
+

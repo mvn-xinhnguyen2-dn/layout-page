@@ -73,3 +73,25 @@ $container-width: 1320px;
 @include respond-above(largest) {
   @include build-grid(largest);
 }
+
+//==Responsive==
+@include respond-below(larger) {
+  .container {
+    max-width: 960px;
+  }
+}
+@include respond-below(wide) {
+  .container {
+    max-width: 720px;
+  }
+}
+@include respond-below(medium) {
+  .container {
+    max-width: 540px;
+  }
+}
+@include respond-below(small) {
+  .container {
+    max-width: 540px;
+  }
+}

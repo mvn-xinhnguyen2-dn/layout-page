@@ -16,7 +16,7 @@
       text-align: left;
     }
     &-social-item {
-      @include pxRem(padding, 12 12 6);
+      @include pxRem(padding, 11 12 5);
       vertical-align: middle;
       text-align: center;
       background-color: #ecf2f6;
@@ -31,6 +31,7 @@
     &-link-list {
       justify-content: flex-end;
       align-items: center;
+      color: #525260;
     }
     &-link-item {
       position: relative;
@@ -40,9 +41,9 @@
       }
       &:last-child {
         &::before {
+          @include pxRem(width, 2);
           content: "";
           height: 58%;
-          width: 2px;
           background-color: #99a1aa;
           border-radius: 50%;
           position: absolute;
@@ -57,8 +58,31 @@
 }
 .active-dark-theme {
   .page-footer {
-    background-color: #27272e;
+    background-color: #212121;
     color: #d3d3d4;
 
+  }
+}
+
+@include respond-below(wide) {
+  .page-footer {
+    .footer {
+      flex-wrap: wrap;
+      .col-5,
+      .col-2 {
+        width: 100%;
+        @include pxRem(margin-bottom, 20 !important);
+      }
+      &-link-list.col-5 {
+        justify-content: center;
+        margin-bottom: 0 !important;
+      }
+      &-link-item {
+        @include pxRem(padding, 0 20 !important);
+      }
+      &-copyright {
+        text-align: center;
+      }
+    }
   }
 }

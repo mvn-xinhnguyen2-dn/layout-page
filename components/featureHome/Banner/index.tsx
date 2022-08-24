@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React,{useCallback} from "react";
 import { Slider } from "../index";
 
 const data = [
@@ -17,35 +17,36 @@ const data = [
 ];
 
 const Banner = () => {
-  function animateValue(
-    obj: HTMLElement | null,
-    start: number,
-    end: number,
-    duration: number
-  ) {
-    let startTimestamp: null | number = null;
-    const step = (timestamp: number) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      obj!!.innerHTML = Math.floor(progress * (end - start) + start)
-        .toLocaleString("en-US")
-        .replace(",", ".");
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      }
-      // console.log(progress);
-    };
-    window.requestAnimationFrame(step);
-  }
-  try {
-    const obj_values: any = document.querySelectorAll(
-      ".counter-number"
-    ) as NodeListOf<HTMLScriptElement>;
-    animateValue(obj_values[0], 0, 5, 1000);
-    animateValue(obj_values[1], 0, 30, 1000);
-    animateValue(obj_values[2], 0, 30, 1000);
-  } catch (err) {}
-
+  useCallback(()=>{
+    function animateValue(
+      obj: HTMLElement | null,
+      start: number,
+      end: number,
+      duration: number
+    ) {
+      let startTimestamp: null | number = null;
+      const step = (timestamp: number) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj!!.innerHTML = Math.floor(progress * (end - start) + start)
+          .toLocaleString("en-US")
+          .replace(",", ".");
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+        // console.log(progress);
+      };
+      window.requestAnimationFrame(step);
+    }
+    try {
+      const obj_values: any = document.querySelectorAll(
+        ".counter-number"
+      ) as NodeListOf<HTMLScriptElement>;
+      animateValue(obj_values[0], 0, 5, 1000);
+      animateValue(obj_values[1], 0, 30, 1000);
+      animateValue(obj_values[2], 0, 30, 1000);
+    } catch (err) {}
+  },[])
   return (
     <section className="section-banner">
       <div className="banner container">

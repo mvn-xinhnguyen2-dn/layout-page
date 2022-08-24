@@ -507,7 +507,7 @@
       left: 32%;
     }
     .shape-2 {
-      top: 180px;
+      @include pxRem(top, 180);
       left: 18%;
       opacity: 0.5;
       animation: movingleftright1 20s infinite;
@@ -673,4 +673,299 @@
   100% {
     left: 125%;
   }
+}
+
+//==Responsive==
+@include respond-below(larger) {
+.page-main {
+  .title-h1 {
+    @include pxRem(font-size, 60);
+  }
+  .title-h2 {
+    @include pxRem(font-size, 60);
+  }
+  .title-section .col-6 {
+    width: 58.33333333%;
+  }
+  .title-section .col-4 {
+    width: 41.66666667%
+  }
+  .section-banner {
+    @include pxRem(padding, 240 0 50);
+    &::before {
+      clip-path: circle(140% at 50% -52%);
+    }
+    .banner {
+      &-count-number {
+        @include pxRem(font-size, 70);
+      }
+      &-slider {
+        @include pxRem(padding-left, 32);
+        .slick-dots {
+          @include pxRem(bottom, 16);
+          li {
+            @include pxRem(margin, 0 5);
+          }
+        }
+      }
+    }
+  }
+  .section-maindemo {
+    @include pxRem(padding, 35 0 80);
+    .maindemo {
+      &-bgshape-list {
+        .shape-3 {
+          top: calc(25% + 25px);
+        }
+        .shape-4 {
+          top: calc(39% + 20px);
+        }
+      }
+      &-item-img {
+        @include pxRem(margin-bottom, 33);
+      }
+    }
+  }
+  .section-services {
+    @include pxRem(padding, 100 0 70);
+    .services {
+      .col-6 {
+        width: 50%;
+      }
+      &-list {
+        .col-4 {
+          width: 50%;
+        }
+      }
+      &-item {
+        @include pxRem(padding, 0 15);
+        &:nth-child(2n-1) {
+          @include pxRem(padding-left, 0);
+        }
+        &:nth-child(2n) {
+          @include pxRem(padding-right, 0);
+        }
+        p.text {
+          letter-spacing: -.025em;
+        }
+      }
+    }
+  }
+  .section-reason {
+    @include pxRem(padding, 100 0 20);
+    .col-4 {
+      width: calc(50% - 15px);
+    }
+    .reason {
+      &-list {
+        @include pxRem(column-gap, 30);
+      }
+      &-item {
+        @include pxRem(padding, 0);
+      }
+    }
+  }
+  .section-contact {
+    @include pxRem(padding, 100 0 40);
+  }
+}
+}
+@include respond-below(large) {
+.page-main {
+  .section-banner {
+    .banner {
+      &-slider {
+        padding-left: 0;
+        .slick-dots {
+          padding-left: 2rem;
+        }
+      }
+    }
+  }
+  .section-maindemo {
+    @include pxRem(padding, 20 0 80);
+    .maindemo-bgshape-list .shape-3 {
+      top: calc(25% + 15px);
+    }
+    .maindemo-bgshape-list .shape-4 {
+      top: calc(39% + 17px);
+    }
+  }
+  .section-reason {
+    .title-text {
+      @include pxRem(padding-left, 55);
+    }
+  }
+}
+  
+}
+@include respond-below(wide) {
+.page-main {
+  .col-10 {
+    width: 100%;
+  }
+  .title-section {
+    flex-wrap: wrap;
+    @include pxRem(margin-bottom, 40);
+    .col-6, .col-4 {
+      width: 100%;
+    }
+  }
+  .bg-dark .title-section {
+    @include pxRem(margin-bottom, 50);
+  }
+  .title-h1 {
+    @include pxRem( font-size, 50);
+  }
+  .title-h2 {
+    @include pxRem( font-size, 50);
+    @include pxRem( margin, 0 0 30);
+  }
+  .title-h4 {
+    @include pxRem( font-size, 26);
+  }
+  .title-text {
+    @include pxRem( font-size, 16);
+    padding: 0;
+  }
+  .section-banner {
+    @include pxRem(padding, 170 0 0);
+    .banner {
+      &-count-list {
+        margin-left: 0;
+        justify-content: center;
+      }
+      &-count-item {
+        @include pxRem( margin-right, 55);
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+      &-count-number {
+        @include pxRem(font-size, 50);
+      }
+      &-bgshape-list {
+        .shape-1 {
+          @include pxRem(top, -45);
+          @include pxRem(left, -122);
+          transform: scale(.6);
+        }
+      }
+    }
+  }
+  .section-services {
+    @include pxRem(padding, 80 0 50);
+    .services .col-6 {
+      width: 100%;
+    }
+    .services .col-4 {
+      width: 66.66667%;
+    }
+    .services-list .col-4 {
+      width: 50%;
+    }
+  }
+  .section-reason {
+    @include pxRem( padding, 80 0 50);
+    .title-text {
+      padding-left: 0;
+    }
+    .col-4 {
+      width: 100%;
+    }
+    .reason-item {
+      @include pxRem(margin-bottom, 30);
+      &-title {
+        margin-bottom: 0;
+      }
+      &:nth-child(4) .btn-small {
+        position: static;
+      }
+    }
+  }
+  .section-contact {
+    @include pxRem(padding, 80 0 30);
+    .title-h2 {
+      @include pxRem(font-size, 60);
+      @include pxRem(margin-bottom, 20);
+    }
+    p.text {
+      @include pxRem(font-size, 18);
+    }
+  }
+}
+  
+}
+@include respond-below(medium) {
+.page-main {
+
+  .title-h1 {
+    @include pxRem(font-size, 40);
+  }
+  .title-h4, .title-h5 {
+    @include pxRem(font-size, 20);
+  }
+  .title-section .col-4 {
+    width: 99%;
+  }
+  .section-banner {
+    @include pxRem(padding, 150 0 0);
+    .banner {
+      &-count-list {
+        @include pxRem(margin, 1 0 0 1);
+      }
+      &-count-item {
+        @include pxRem(margin-right, 30);
+        @include pxRem(min-width, 80);
+      }
+      &-count-number {
+        @include pxRem(padding, 0 11.2);
+      }
+      &-slider {
+        @include pxRem(margin-top, 60);
+        .slick-slide.slick-active.slick-center.slick-current {
+          @include pxRem(width, 677 !important);
+          @include pxRem(margin, 0 0 20);
+        }
+      }
+    }
+  }
+  .section-maindemo {
+    @include pxRem(padding, 20 0 40);
+    .maindemo {
+      .col-6 {
+        width: 100%
+      }
+      &-item {
+        padding: 0;
+        @include pxRem(margin-bottom, 60);
+      }
+    }
+  }
+  .section-services {
+    @include pxRem(padding, 60 0 30);
+    .services-list .col-4 {
+      width: 100%;
+    }
+    .services-item {
+      padding: 0;
+    }
+  }
+  .section-reason {
+    @include pxRem(padding, 60 0 30);
+  }
+  .section-contact {
+    @include pxRem(padding, 60 0 10);
+    .title-h2 {
+      @include pxRem(font-size, 50);
+    }
+    .contact {
+      @include pxRem(margin-bottom, 50);
+    }
+    .shape-6 {
+      display: none;
+    }
+  }
+}
+  
 }
