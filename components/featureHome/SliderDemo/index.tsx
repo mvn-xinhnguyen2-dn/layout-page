@@ -52,6 +52,7 @@ const SliderDemo = () => {
                     alt="bubble"
                     width={828}
                     height={467}
+                    loading={'eager'}
                     priority
                   />
                 </a>

@@ -60,7 +60,7 @@ const MainDemo = () => {
                         width={630}
                       />
                     </div>
-                    <h4 className="title-h4">{item.title}</h4>
+                    {item.title!=="" ? <h4 className="title-h4">{item.title}</h4> : <></>}
                   </a>
                 </li>
               </Link>
