@@ -30,34 +30,13 @@ const SliderDemo = () => {
   const settings = {
     centerMode: true,
     centerPadding: "50px",
-    slidesToShow: 1,
     arrows: false,
     dots: true,
-    autoPlay: true,
-    autoplaySpeed: 1500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
     variableWidth: true,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: "40px",
-          slidesToShow: 3,
-          variableWidth: true
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: "40px",
-          slidesToShow: 1,
-          variableWidth: true
-        },
-      },
-    ],
   };
   return (
     <>

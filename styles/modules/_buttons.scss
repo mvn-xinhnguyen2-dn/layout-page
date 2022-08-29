@@ -115,6 +115,12 @@
 }
 
 //==Responsive==
+@include respond-below(wide) {
+  .btn {
+    @include pxRem(padding, 19 56);
+    @include pxRem(font-size, 16);
+  }
+}
 @include respond-below(medium) {
   .btn {
     @include pxRem(padding, 16.1 31.4);

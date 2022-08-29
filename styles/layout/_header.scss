@@ -152,11 +152,13 @@
         @include pxRem(width, 150);
         @include pxRem(height, 62);
         div {
-          @include pxRem(padding-top, 5.5);
+          @include pxRem(padding-top, 6);
         }
       }
-
     }
+  }
+  .swicher-theme {
+    display: none;
   }
 }
 @include respond-below(medium) {

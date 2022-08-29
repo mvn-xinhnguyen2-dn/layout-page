@@ -138,8 +138,9 @@
       }
       .slick-dots {
         @include pxRem(bottom, 10);
+        @include pxRem(margin-left, 22);
         li {
-          @include pxRem(margin, 0 10);
+          @include pxRem(margin, 0 6);
           button {
             color: #dbdeff;
             &:before {
@@ -404,6 +405,8 @@
         .reason-item-icon {
           @include pxRem(margin-right, 0);
           background-color: map-get($colors, bg-blue-light);
+          position: relative;
+          z-index: 1;
         }
         .reason-item-content {
           @include pxRem(padding, 30 35);
@@ -413,6 +416,7 @@
         }
         .title-h5 {
           @include pxRem(font-size, 32);
+          @include pxRem(margin-bottom, 20);
           color: map-get($colors, black);
           transition: $transition-hover;
           font-weight: 500;
@@ -428,6 +432,10 @@
         }
       }
       &:nth-child(4) {
+        .title-h5 {
+          margin-bottom: 0;
+          line-height: 1.2;
+        }
         .shape {
           @include pxRem(max-height, 139);
           @include pxRem(bottom, -7);
@@ -442,6 +450,10 @@
         }
       }
       &:last-child {
+        .title-h5 {
+          line-height: 1.2;
+          margin-bottom: 0;
+        }
         .shape {
           @include pxRem(max-height, 82);
         }
@@ -846,9 +858,7 @@
       }
       &-bgshape-list {
         .shape-1 {
-          @include pxRem(top, -45);
-          @include pxRem(left, -122);
-          transform: scale(.6);
+          max-width: calc(60% + 5px) !important;
         }
       }
     }
@@ -875,7 +885,16 @@
     }
     .reason-item {
       @include pxRem(margin-bottom, 30);
+
       &-title {
+        @include pxRem(margin-bottom, 20);
+      }
+      &:first-child .reason-item-title {
+        margin-bottom: 0;
+      }
+      &:nth-child(4) .title-h5 ,
+      &:nth-child(5) .title-h5 {
+        @include pxRem(font-size, 26);
         margin-bottom: 0;
       }
       &:nth-child(4) .btn-small {
@@ -898,7 +917,6 @@
 }
 @include respond-below(medium) {
 .page-main {
-
   .title-h1 {
     @include pxRem(font-size, 40);
   }
@@ -923,9 +941,10 @@
       }
       &-slider {
         @include pxRem(margin-top, 60);
-        .slick-slide.slick-active.slick-center.slick-current {
-          @include pxRem(width, 677 !important);
-          @include pxRem(margin, 0 0 20);
+        .slick-slide {
+        // .slick-slide.slick-active.slick-center {
+          @include pxRem(max-width, 677 !important);
+          @include pxRem(margin, 0 0 55 !important);
         }
       }
     }
@@ -968,4 +987,58 @@
   }
 }
   
+}
+@include respond-below(small) {
+.page-main {
+  .title-h2 {
+    @include pxRem(font-size, 34);
+  }
+  .section-banner {
+    &::before {
+      clip-path: circle(170% at 50% -52%);
+    }
+    .banner-count-number {
+      @include pxRem(font-size, 40);
+      @include pxRem(padding, 0 11);
+    }
+    .banner-slider {
+      .slick-slide {
+          @include pxRem(max-width, 389 !important);
+      }
+    }
+  }
+  .section-services {
+    .services {
+      .title-h2 {
+        @include pxRem(margin-bottom, 35);
+      }
+      .col-4 {
+        width: 100%;
+      }
+    }
+  }
+  .section-reason {
+    .reason {
+      &-item:first-child {
+        .title-h5 {
+          @include pxRem(margin-bottom, 20);
+        }
+      }
+      &-item:nth-child(4),
+      &-item:nth-child(5) {
+        .title-h5 {
+          @include pxRem(font-size, 20);
+        }
+        .reason-item-title {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  .section-contact {
+    .title-h2 {
+      @include pxRem(font-size, 40);
+    }
+  }
+}
 }
