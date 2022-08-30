@@ -53,7 +53,6 @@ const SliderDemo = () => {
                     width={828}
                     height={467}
                     loading={'eager'}
-                    priority
                   />
                 </a>
               </Link>
