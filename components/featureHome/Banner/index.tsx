@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React,{useCallback} from "react";
+import React,{useCallback, useEffect} from "react";
 import { Slider } from "../index";
 
 const data = [
@@ -17,7 +17,7 @@ const data = [
 ];
 
 const Banner = () => {
-  // useCallback(()=>{
+  useEffect(()=>{
     function animateValue(
       obj: HTMLElement | null,
       start: number,
@@ -46,7 +46,7 @@ const Banner = () => {
       animateValue(obj_values[1], 0, 30, 1000);
       animateValue(obj_values[2], 0, 30, 1000);
     } catch (err) {}
-  // },[])
+  },[])
   return (
     <section className="section-banner">
       <div className="banner container">
